@@ -1,14 +1,14 @@
 import * as express from 'express'
 import { Application, Request, Response } from 'express'
-import { UserDTO } from './dto/user.dto'
-const port = process.env.PORT || 3000
+import router from './router/index.router'
+const cors = require('cors')
+
+const port = process.env.PORT || 4000
 
 const app: Application = express()
-
-
-app.get('/', (req: express.Request, res: Response) => {
-  res.sendStatus(200)
-})
+app.use(cors())
+app.use(express.json())
+app.use('/api', router)
 
 app.listen(port, () => {
   console.log(`Server is running at ${port}`)

@@ -12,11 +12,18 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/cors": "^2.8.9",
     "@types/express": "^4.17.9",
+    "@types/express-serve-static-core": "^4.17.15",
+    "@types/mongoose": "^5.10.2",
     "@types/node": "^14.14.12",
+    "@types/yup": "^0.29.10",
     "nodemon": "^2.0.6"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^5.11.7",
+    "yup": "^0.32.8",
+    "cors": "^2.8.5"
   }
 }
