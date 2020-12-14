@@ -3,7 +3,7 @@ import { Application, Request, Response } from 'express'
 import router from './router/index.router'
 const cors = require('cors')
 
-const port = process.env.PORT || 4000
+const port = process.env.PORT || 5000
 
 const app: Application = express()
 app.use(cors())

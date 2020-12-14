@@ -11,7 +11,6 @@ export default (req: Request, res: Response, next: NextFunction) => {
   })
   schema.validate({ username, password })
     .then(result => {
-      console.log(result)
       next()
     })
     .catch(err => {
