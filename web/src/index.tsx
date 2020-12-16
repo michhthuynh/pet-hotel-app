@@ -11,7 +11,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import 'bootswatch/dist/pulse/bootstrap.min.css'
 import './index.css'
-import CheckOutForm from './components/CheckOut/CheckOutForm';
+import CheckOutPage from './pages/CheckOutPage'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -22,7 +22,7 @@ ReactDOM.render(
           <Route exact path ="/" component={VideoList} />
           <Route path ="/new-video" component={VideoForm} />
           <Route path ="/update/:id" component={VideoForm} />
-          <Route path ="/check-out" component={CheckOutForm} />
+          <Route path ="/check-out" component={CheckOutPage} />
         </Switch>
         <ToastContainer autoClose = {1000}/>
       </div>
