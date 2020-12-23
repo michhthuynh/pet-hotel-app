@@ -1,0 +1,20 @@
+.body{
+    font-size: 14px;
+    line-height: 20px;
+    font-family: sans-serif;
+}
+#root{
+    background-color: rgb(241, 240, 241) !important;
+
+}
+.td__container{
+    margin-top: 16px;
+    margin-bottom: 16px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    max-width: 1264px;
+    
+}

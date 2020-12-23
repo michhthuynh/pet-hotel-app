@@ -1,23 +1,53 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react'
-import NoneItem from '../components/CheckOut/NoneItem';
+import React from "react";
 
 import "../components/CheckOut/CheckOut.css";
+import Item from "../components/CheckOut/Item";
+import Discount from "../components/CheckOut/Discount";
+import Cash from "../components/CheckOut/Cash";
+import { useState } from "react";
 function CheckOutForm() {
-    return (
-        <div>
-        <div className="css-1fh4ajs">
-          <div className="css-1ouisd2">
-            <div className="css-741t9y"><a color="#848788" href="/" className="css-1y81cwd"><span data-size={16} className="css-6rvkmf" /></a><span className="css-rhmj3t">&gt;</span></div>
-            <div className="css-741t9y"><a color="#848788" className="css-vb1rlu">Giỏ hàng</a></div>
+  const [cashTotal, setCashTotal] = useState<number>(0);
+
+  const setCashChange = (price: number) => {
+    setCashTotal(price);
+  };
+  return (
+    <div className="checkout">
+      <div className="row">
+        <div className="col-md-8 header_title">Giỏ hàng</div>
+        <div className="col-md-4 header__delete">Col4</div>
+      </div>
+      <div className="row checkout__header">
+        <div className="row col-md-8">
+          <div className="col-md-8 header__title">
+            Giỏ hàng của bạn (2 sản phẩm)
           </div>
-          <NoneItem />
-        </div>
-        <div className="css-1fjg82v">
-          <div data-type="error" className="css-xi8j9"><span data-size={50} color="#E24C4B" className="css-f6dj2x" /><span>Có lỗi xảy ra khi xuất báo giá. Vui lòng thử lại hoặc tải định dạng khác</span></div>
+          <div className="col-md-4 text-right p-0">
+            <button className=" header__delete ">Xóa tất cả</button>
+          </div>
         </div>
       </div>
-    )
+      <div className="row checkout__content">
+        <div className="col-md-8 card-block checkout__item">
+          <Item
+            itemInfo='Laptop ASUS ROG Strix G G531GT-AL017T (15" FHD/i7-9750H/8GB/512GB SSD/GTX 1650/Win10/2.3 kg)'
+            itemImg="./image/Laptop1.jpg"
+            itemPrice={27000000}
+            qualityRemain={5}
+            count={1}
+            itemImgDiscount="./image/laptop1.jpg"
+            dicountInfo="x1 Túi đựng laptop 15''"
+            priceTotal={setCashChange}
+          />
+        </div>
+        <div className="col-md-4">
+          <Discount />
+          <Cash cashTemp={cashTotal} cashTrans={0} cashDiscount={0} />
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default CheckOutForm
+export default CheckOutForm;
