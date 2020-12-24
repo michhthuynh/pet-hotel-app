@@ -7,7 +7,7 @@ interface props {
   qualityRemain: number;
   count: number;
   itemImgDiscount: string;
-  dicountInfo: string;
+  discountInfo: string;
   priceTotal: (price: number) => void;
 }
 function Item({
@@ -17,21 +17,20 @@ function Item({
   qualityRemain,
   count,
   itemImgDiscount,
-  dicountInfo,
+  discountInfo,
   priceTotal,
 }: props) {
-  const [isMaximun, setIsMaximun] = useState<boolean>(false);
+  const [isMaximum, setIsMaximum] = useState<boolean>(false);
 
   const [amount, setAmount] = useState<number>(count);
 
-  priceTotal(count * itemPrice);
   
   const subAmount = () => {
     if (amount > 0) {
       setAmount(amount - 1);
       priceTotal((amount - 1) * itemPrice);
     }
-    setIsMaximun(false);
+    setIsMaximum(false);
   };
 
   const addAmount = () => {
@@ -39,17 +38,17 @@ function Item({
       setAmount(amount + 1);
       priceTotal((amount + 1) * itemPrice);
     }
-    if (amount === qualityRemain) setIsMaximun(true);
+    if (amount === qualityRemain) setIsMaximum(true);
   };
 
   const changeAmount = (e: ChangeEvent<HTMLInputElement>) => {
     setAmount(+e.target.value);
     priceTotal(+e.target.value * itemPrice);
     if (+e.target.value > qualityRemain) {
-      setIsMaximun(true);
+      setIsMaximum(true);
       setAmount(qualityRemain);
       priceTotal(+e.target.value * itemPrice);
-    } else setIsMaximun(false);
+    } else setIsMaximum(false);
   };
 
   const formatPrice = (price: number) =>
@@ -84,13 +83,13 @@ function Item({
               <button onClick={addAmount} className="quantity--button col-md-4">
                 <span
                   className="quantity--add"
-                  {...(isMaximun ? "" : "disabled")}
+                  {...(isMaximum ? "" : "disabled")}
                 >
                   +
                 </span>
               </button>
             </div>
-            <div className={`quantity--mess ${isMaximun ? "" : "disabled"}`}>
+            <div className={`quantity--mess ${isMaximum ? "" : "disabled"}`}>
               Chỉ còn {qualityRemain} sản phẩm
             </div>
           </div>
@@ -100,7 +99,7 @@ function Item({
         </div>
         <div className="col-md-7 mt-1 item__discount">
           <img className="discount--img" src={itemImgDiscount} alt="" />
-          <div className="discount--info m-1">{dicountInfo}</div>
+          <div className="discount--info m-1">{discountInfo}</div>
         </div>
       </div>
     </>

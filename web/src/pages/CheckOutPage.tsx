@@ -6,13 +6,16 @@ import Item from "../components/CheckOut/Item";
 import Discount from "../components/CheckOut/Discount";
 import Cash from "../components/CheckOut/Cash";
 import { useState } from "react";
+import Footer from "../components/Footer/Footer";
 function CheckOutForm() {
   const [cashTotal, setCashTotal] = useState<number>(0);
 
   const setCashChange = (price: number) => {
+    console.log(price);
     setCashTotal(price);
   };
   return (
+    <>
     <div className="checkout">
       <div className="row">
         <div className="col-md-8 header_title">Giỏ hàng</div>
@@ -37,7 +40,7 @@ function CheckOutForm() {
             qualityRemain={5}
             count={1}
             itemImgDiscount="./image/laptop1.jpg"
-            dicountInfo="x1 Túi đựng laptop 15''"
+            discountInfo="x1 Túi đựng laptop 15''"
             priceTotal={setCashChange}
           />
         </div>
@@ -47,6 +50,9 @@ function CheckOutForm() {
         </div>
       </div>
     </div>
+    <Footer />
+    </>
+    
   );
 }
 
