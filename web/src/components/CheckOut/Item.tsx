@@ -8,7 +8,7 @@ interface props {
   count: number;
   itemImgDiscount: string;
   discountInfo: string;
-  priceTotal: (price: number) => void;
+  priceChange: (price: number) => void;
 }
 function Item({
   itemInfo,
@@ -18,7 +18,7 @@ function Item({
   count,
   itemImgDiscount,
   discountInfo,
-  priceTotal,
+  priceChange,
 }: props) {
   const [isMaximum, setIsMaximum] = useState<boolean>(false);
 
@@ -28,7 +28,7 @@ function Item({
   const subAmount = () => {
     if (amount > 0) {
       setAmount(amount - 1);
-      priceTotal((amount - 1) * itemPrice);
+      priceChange(-itemPrice);
     }
     setIsMaximum(false);
   };
@@ -36,19 +36,21 @@ function Item({
   const addAmount = () => {
     if (amount < qualityRemain) {
       setAmount(amount + 1);
-      priceTotal((amount + 1) * itemPrice);
+      priceChange(itemPrice);
     }
     if (amount === qualityRemain) setIsMaximum(true);
   };
 
   const changeAmount = (e: ChangeEvent<HTMLInputElement>) => {
     setAmount(+e.target.value);
-    priceTotal(+e.target.value * itemPrice);
     if (+e.target.value > qualityRemain) {
       setIsMaximum(true);
       setAmount(qualityRemain);
-      priceTotal(+e.target.value * itemPrice);
-    } else setIsMaximum(false);
+      priceChange((qualityRemain - amount) * itemPrice);
+    } else {
+      setIsMaximum(false);
+      priceChange((+e.target.value - amount) * itemPrice);
+    }
   };
 
   const formatPrice = (price: number) =>
