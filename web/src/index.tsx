@@ -12,10 +12,12 @@ import 'react-toastify/dist/ReactToastify.css'
 import 'bootswatch/dist/pulse/bootstrap.min.css'
 import './index.css'
 import CheckOutPage from './pages/CheckOutPage'
+import Header from './components/Header/Header';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
+      <Header />
       <Navbar />
       <div className="td__container">
         <Switch>
