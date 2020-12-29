@@ -1,6 +1,7 @@
 import React from "react";
-import './Header.scss'
-import 'font-awesome/css/font-awesome.min.css';
+import "./Header.scss";
+import "font-awesome/css/font-awesome.min.css";
+import Navbar from "../Navbar/Navbar";
 
 function header() {
   return (
@@ -15,7 +16,7 @@ function header() {
                 <ul className="nav nav-pills">
                   <li>
                     <a href="login.html">
-                      <i className="fa fa-phone" /> +2 95 01 88 821
+                      <i className="fa fa-phone" /> +84 332 083 856
                     </a>
                   </li>
                   <li>
@@ -63,54 +64,35 @@ function header() {
       {/*/header_top*/}
       <div className="header-middle">
         {/*header-middle*/}
-        <div className="container">
+        <div className="container container--middle">
           <div className="row">
-            <div className="col-md-4 clearfix">
+            <div className="col-md-6 clearfix">
               <div className="logo pull-left">
                 <a href="index.html">
-                  <img src="images/home/logo.png" alt="" />
+                  <img src="./logo192.png" alt="" />
                 </a>
               </div>
-              <div className="btn-group pull-right clearfix">
-                <div className="btn-group">
-                  <button
-                    type="button"
-                    className="btn btn-default dropdown-toggle usa"
-                    data-toggle="dropdown"
-                  >
-                    USA
-                    <span className="caret" />
-                  </button>
-                  <ul className="dropdown-menu">
-                    <li>
-                      <a href="login.html">Canada</a>
-                    </li>
-                    <li>
-                      <a href="login.html">UK</a>
-                    </li>
-                  </ul>
-                </div>
-                <div className="btn-group">
-                  <button
-                    type="button"
-                    className="btn btn-default dropdown-toggle usa"
-                    data-toggle="dropdown"
-                  >
-                    DOLLAR
-                    <span className="caret" />
-                  </button>
-                  <ul className="dropdown-menu">
-                    <li>
-                      <a href="login.html">Canadian Dollar</a>
-                    </li>
-                    <li>
-                      <a href="login.html">Pound</a>
-                    </li>
-                  </ul>
+              <div className="btn-group search-area">
+                <div className="input-group mb-2">
+                  <input
+                    type="search"
+                    placeholder="What're you searching for?"
+                    aria-describedby="button-addon5"
+                    className="form-control"
+                  />
+                  <div className="input-group-append">
+                    <button
+                      id="button-addon5"
+                      type="submit"
+                      className="btn btn-primary"
+                    >
+                      <i className="fa fa-search" />
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="col-md-8 clearfix">
+            <div className="col-md-6 clearfix">
               <div className="shop-menu clearfix pull-right">
                 <ul className="nav navbar-nav">
                   <li>
@@ -147,77 +129,8 @@ function header() {
       {/*/header-middle*/}
       <div className="header-bottom">
         {/*header-bottom*/}
-        <div className="container">
-          <div className="row">
-            <div className="col-sm-9">
-              <div className="navbar-header">
-                <button
-                  type="button"
-                  className="navbar-toggle"
-                  data-toggle="collapse"
-                  data-target=".navbar-collapse"
-                >
-                  <span className="sr-only">Toggle navigation</span>
-                  <span className="icon-bar" />
-                  <span className="icon-bar" />
-                  <span className="icon-bar" />
-                </button>
-              </div>
-              <div className="mainmenu pull-left">
-                <ul className="nav navbar-nav collapse navbar-collapse">
-                  <li>
-                    <a href="index.html">Home</a>
-                  </li>
-                  <li className="dropdown">
-                    <a href="login.html" className="active">
-                      Shop
-                      <i className="fa fa-angle-down" />
-                    </a>
-                    <ul role="menu" className="sub-menu">
-                      <li>
-                        <a href="shop.html" className="active">
-                          Products
-                        </a>
-                      </li>
-                      <li>
-                        <a href="product-details.html">Product Details</a>
-                      </li>
-                      <li>
-                        <a href="checkout.html">Checkout</a>
-                      </li>
-                      <li>
-                        <a href="cart.html">Cart</a>
-                      </li>
-                      <li>
-                        <a href="login.html">Login</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className="dropdown">
-                    <a href="login.html">
-                      Blog
-                      <i className="fa fa-angle-down" />
-                    </a>
-                    <ul role="menu" className="sub-menu">
-                      <li>
-                        <a href="blog.html">Blog List</a>
-                      </li>
-                      <li>
-                        <a href="blog-single.html">Blog Single</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <a href="404.html">404</a>
-                  </li>
-                  <li>
-                    <a href="contact-us.html">Contact</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-          </div>
+        <div className="container container--bottom">
+            <Navbar />
         </div>
       </div>
     </header>

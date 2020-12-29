@@ -5,7 +5,6 @@ import reportWebVitals from './reportWebVitals';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import VideoList from './components/Videos/VideoList';
 import VideoForm from './components/Videos/VideoForm';
-import Navbar from './components/Navbar/Navbar'
 import { ToastContainer } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css'
@@ -18,7 +17,6 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Header />
-      <Navbar />
       <div className="td__container">
         <Switch>
           <Route exact path ="/" component={VideoList} />
